@@ -1,45 +1,82 @@
 import React, { Component } from 'react';
 
-class container extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {value: 'container'};
+class Flavours extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedOption: ''
+    };
+  this.radioChange = this.radioChange.bind(this);
+}
+
+  radioChange(e) {
+    this.setState({
+      selectedOption: e.currentTarget.value
+    });
+  }
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('Pick your size if the container: ' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <div>
-        
-          <h5>  Pick your size if the container:</h5>
-            <input type="checkbox"
+  render() {
+    return (
+      <div>
+        <h5> Select the size of the container:</h5>        
+        <input type="radio"
                value="Plain Cone"
                checked={this.state.selectedOption === "Plain Cone"}
                onChange={this.radioChange} />Plain Cone
 
-        <input type="checkbox"
+        <input type="radio"
                value="Sugar Conee"
                checked={this.state.selectedOption === "Sugar Conee"}
                onChange={this.radioChange}/>Sugar Conee
-      <input type="checkbox"
+      <input type="radio"
                value="paper cup"
                checked={this.state.selectedOption === "paper cup"}
                onChange={this.radioChange} />paper cup
         
+        <p> <strong>{this.state.selectedOption}</strong></p>
       </div> 
-
-      );
-    }
+    );
   }
-  export default container;
+}
+
+export default  Flavours;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
